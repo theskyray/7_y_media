@@ -29,10 +29,10 @@ public class Carta {
 	}
 	
 	//GET & SET CARTAENBARAJA
-	public int setCartaEnBaraja() {
-		return CartaEnBaraja;
+	public void setCartaEnBaraja(boolean cartaEnBaraja) {
+		this.CartaEnBaraja = cartaEnBaraja;
 	}
-	public void getCartaEnBaraja (int nuevoCartaEnBaraja) {
+	public void getCartaEnBaraja (boolean nuevoCartaEnBaraja) {
 		this.CartaEnBaraja = nuevoCartaEnBaraja;
 	}
 	
