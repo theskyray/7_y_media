@@ -42,4 +42,10 @@ public class Carta {
 							+ this.Valor + " valor de CartaEnBaraja = " + this.CartaEnBaraja);
 		return cadena;
 	}
+	
+	//Carta en baraja
+	public boolean isCartaEnBaraja() {
+		return CartaEnBaraja;
+	}
+	
 }
