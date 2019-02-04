@@ -12,6 +12,9 @@ public class Main_act_7_1 {
 		
 		System.out.println(jugador);
 		
+		jugador.pedirCarta();
+		
+		System.out.println(jugador);
 		
 	}
 
