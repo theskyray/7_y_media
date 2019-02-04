@@ -3,7 +3,7 @@ package methods;
 public class Baraja {
 
 	private Carta carta;
-	private Carta baraja[] = new Carta [40];
+	private static Carta baraja[] = new Carta [40];
 	
 	public Baraja () {
 		int k = 0;
@@ -15,12 +15,17 @@ public class Baraja {
 		}
 	}
 	
-	public void sacarCarta() {
+	public static Carta sacarCarta() {
+		
 		int i = (int) (Math.random()*40);
 		while (baraja[i].isCartaEnBaraja() == false) {
+			
 			i = (int) (Math.random()*40);
 		}
+		
 		baraja[i].setCartaEnBaraja(false);
+		
+		return baraja[i];
 	}
 	
 	

@@ -2,11 +2,11 @@ package methods;
 
 public enum Valor {
 
-	uno,
+	as,
 	dos,
 	tres,
 	cuatro,
-	cunco,
+	cinco,
 	seis,
 	siete,
 	sota,

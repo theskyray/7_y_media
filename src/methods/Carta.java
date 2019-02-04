@@ -2,30 +2,30 @@ package methods;
 
 public class Carta {
 	
-	private int Palo;
-	private int Valor;
+	private int palo;
+	private int valor;
 	private boolean CartaEnBaraja;
 	
 	public Carta(int Palo,  int Valor) {
-		this.Palo = Palo;
-		this.Valor = Valor;
-		boolean CartaEnBaraja = true;
+		this.palo = Palo;
+		this.valor = Valor;
+		this.CartaEnBaraja = true;
 	}
 	
 	//GET & SET PALO
 	public int setPalo() {
-		return Palo;
+		return palo;
 	}
 	public void getPalo (int nuevoPalo) {
-		this.Palo = nuevoPalo;
+		this.palo = nuevoPalo;
 	}
 	
 	//GET & SET VALOR
 	public int setValor() {
-		return Valor;
+		return valor;
 	}
 	public void getValor (int nuevoValor) {
-		this.Valor = nuevoValor;
+		this.valor = nuevoValor;
 	}
 	
 	//GET & SET CARTAENBARAJA
@@ -38,8 +38,8 @@ public class Carta {
 	
 	//TOSTRING
 	public String toString() {
-		String cadena = new String ("Valor del palo = " + this.Palo + " valor de la carta = "
-							+ this.Valor + " valor de CartaEnBaraja = " + this.CartaEnBaraja);
+		String cadena = new String ("La carta es el " + Valor.values()[this.valor] + " de "
+							+ Palo.values()[this.palo] + "; valor de CartaEnBaraja = " + this.CartaEnBaraja);
 		return cadena;
 	}
 	

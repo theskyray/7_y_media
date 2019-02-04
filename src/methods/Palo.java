@@ -2,9 +2,9 @@ package methods;
 
 public enum Palo {
 	
-		OROS,
-		COPAS,
-		ESPADAS,
-		BASTOS
+		oros,
+		copas,
+		espadas,
+		bastos
 		
 }
