@@ -4,6 +4,7 @@ public class Baraja {
 
 	private Carta carta;
 	private static Carta baraja[] = new Carta [40];
+	private static int cartasRestantes = 40;
 	
 	public Baraja () {
 		int k = 0;
@@ -24,11 +25,14 @@ public class Baraja {
 		}
 		
 		baraja[i].setCartaEnBaraja(false);
+		cartasRestantes--;
 		
 		return baraja[i];
 	}
 	
-	
+	public static int getCartasRestantes() {
+		return cartasRestantes;
+	}
 	
 
 }

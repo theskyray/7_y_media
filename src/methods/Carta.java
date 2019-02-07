@@ -21,11 +21,13 @@ public class Carta {
 	}
 	
 	//GET & SET VALOR
-	public int setValor() {
-		return valor;
+
+	public void setValor(int valor) {
+		this.valor = valor;
 	}
-	public void getValor (int nuevoValor) {
-		this.valor = nuevoValor;
+	
+	public int getValor() {
+		return valor;
 	}
 	
 	//GET & SET CARTAENBARAJA
@@ -38,8 +40,8 @@ public class Carta {
 	
 	//TOSTRING
 	public String toString() {
-		String cadena = new String ("La carta es el " + Valor.values()[this.valor] + " de "
-							+ Palo.values()[this.palo] + "; valor de CartaEnBaraja = " + this.CartaEnBaraja);
+		String cadena = new String (Valor.values()[this.valor] + " de "
+							+ Palo.values()[this.palo]);
 		return cadena;
 	}
 	
