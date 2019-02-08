@@ -5,6 +5,7 @@ import methods.Baraja;
 public class Jugador {
 
 	private Carta [] mano = new Carta [14];
+	static Baraja baraja = new Baraja();
 	private boolean sePlanta;
 	private boolean sePasa;
 	private boolean ganador;

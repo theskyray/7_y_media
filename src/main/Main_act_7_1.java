@@ -3,6 +3,7 @@ package main;
 import java.util.Scanner;
 
 import methods.Juego;
+import methods.Jugador;
 
 public class Main_act_7_1 {
 
@@ -22,11 +23,16 @@ public class Main_act_7_1 {
 		
 		numJugadores = numJugadores + 1;
 		
-		Juego juego = new Juego (numJugadores);
+		Jugador [] jugadores = new Jugador [numJugadores];
 		
 		//Se construyen los jugadores
 
+		jugadores = new Jugador [numJugadores];
 		
+		for (int i = 0; i < jugadores.length; i++) {
+			jugadores[i] = new Jugador ();
+		}
+
 		
 		//Empieza el juego
 		for (int i = 0; finPartida != numJugadores; i++) {
@@ -34,22 +40,22 @@ public class Main_act_7_1 {
 			System.out.println("Ronda " + (i + 1));
 			System.out.println("---------------------------------------------------------------------------------------------------");
 			
-			for (int j = 0; j < juego.jugadores.length; j++) {
+			for (int j = 0; j < jugadores.length; j++) {
 				
 				
 				//Si el jugador tiene menos de 7.5, entonces juega
-				if (juego.jugadores[j].puntuacion() <= 7.5 && juego.jugadores[j].getSePlanta() == false) {
+				if (jugadores[j].puntuacion() <= 7.5 && jugadores[j].getSePlanta() == false) {
 				
 					//Máquina
 					if (j == 0) {
 												
 						System.out.println("TURNO DE LA MÁQUINA");
 						
-						System.out.println("\n" + juego.jugadores[j]);	
-						System.out.println("tienes una puntuación de " + juego.jugadores[j].puntuacion() + " puntos");
+						System.out.println("\n" + jugadores[j]);	
+						System.out.println("tienes una puntuación de " + jugadores[j].puntuacion() + " puntos");
 
 						
-						if (juego.jugadores[0].iaRoba(juego.maxPuntuacion(), i) == true) {
+						if (jugadores[0].iaRoba(maxPuntuacion(jugadores), i) == true) {
 							System.out.println("Me planto");
 							finPartida++;
 						}
@@ -64,8 +70,8 @@ public class Main_act_7_1 {
 					else {
 						System.out.println("Jugador " + (j + 1) + ", es tu turno");
 						
-						System.out.println("\n" + juego.jugadores[j]);	
-						System.out.println("tienes una puntuación de " + juego.jugadores[j].puntuacion() + " puntos");
+						System.out.println("\n" + jugadores[j]);	
+						System.out.println("tienes una puntuación de " + jugadores[j].puntuacion() + " puntos");
 						
 						System.out.println("\nElige una opción");
 						System.out.println("1. Pedir carta");
@@ -82,17 +88,17 @@ public class Main_act_7_1 {
 						//Pedir carta (Opción 1)
 						case 1:
 							
-							System.out.println("La carta es " + juego.jugadores[j].pedirCarta());
+							System.out.println("La carta es " + jugadores[j].pedirCarta());
 							
-							if (juego.jugadores[j].puntuacion() > 7.5) {
+							if (jugadores[j].puntuacion() > 7.5) {
 								System.out.println("Lástima, te has pasado");
-								juego.jugadores[j].setSePasa(true);
+								jugadores[j].setSePasa(true);
 								finPartida++;
 							}
 							
 							else {
 
-								System.out.println("¿Deseas plantarte? tienes una puntuación de " + juego.jugadores[j].puntuacion() + " puntos");
+								System.out.println("¿Deseas plantarte? tienes una puntuación de " + jugadores[j].puntuacion() + " puntos");
 								
 								System.out.println("1. Si");
 								System.out.println("2. No");
@@ -103,7 +109,7 @@ public class Main_act_7_1 {
 								}
 								
 								if (sePlanta == 1) {
-									juego.jugadores[j].plantarse();
+									jugadores[j].plantarse();
 									finPartida++;
 								}
 								
@@ -114,7 +120,7 @@ public class Main_act_7_1 {
 						//Plantarse (Opción 2)	
 						case 2:
 							
-							System.out.println("¿Seguro que deseas plantarte? tienes una puntuación de " + juego.jugadores[j].puntuacion() + " puntos");
+							System.out.println("¿Seguro que deseas plantarte? tienes una puntuación de " + jugadores[j].puntuacion() + " puntos");
 							
 							System.out.println("1. Si");
 							System.out.println("2. No");
@@ -125,7 +131,7 @@ public class Main_act_7_1 {
 							}
 							
 							if (sePlanta == 1) {
-								juego.jugadores[j].plantarse();
+								jugadores[j].plantarse();
 								finPartida++;
 							}
 							
@@ -146,17 +152,66 @@ public class Main_act_7_1 {
 		}
 		
 		//Elección del ganador
-		int l = juego.ganador();
+		int l = ganador(jugadores);
 		
 		if (l == -1) {
 			System.out.println("Habeis perdido todos");
 		}
 		
 		else {
-			System.out.println("Ha ganado el jugador " + (l + 1) + " con una puntuacion de " + juego.jugadores[l].puntuacion() + " puntos");
+			System.out.println("Ha ganado el jugador " + (l + 1) + " con una puntuacion de " + jugadores[l].puntuacion() + " puntos");
 		}
 		
 		sc.close();
+	}
+	
+	//Se elige al ganador
+	public static int ganador(Jugador [] jugadores) {
+		int l = 0, cont = 0, k = 0;
+		float maxPuntuacion = 0;
+		for (k = 0; k < jugadores.length; k++) {
+			if (jugadores[k].getSePasa() == false) {
+				if (k == 0) {
+					l = k;
+					maxPuntuacion = jugadores[k].puntuacion();
+				}
+				else {
+					if (maxPuntuacion < jugadores[k].puntuacion()) {
+						l = k;
+						maxPuntuacion = jugadores[k].puntuacion();
+					}
+				}
+			}
+			
+			else {
+				cont++;
+			}
+			
+		}
+		
+		if (cont == k) {
+			l = -1;
+		}
+		
+		return l;
+	}
+	
+	//Puntuación máxima
+	public static float maxPuntuacion(Jugador [] jugadores) {
+		float maxPuntuacion = 0;
+		for (int k = 0; k < jugadores.length; k++) {
+			if (jugadores[k].getSePasa() == false) {
+				if (maxPuntuacion == 0) {
+					maxPuntuacion = jugadores[k].puntuacion();
+				}
+				else {
+					if (maxPuntuacion < jugadores[k].puntuacion()) {
+						maxPuntuacion = jugadores[k].puntuacion();
+					}
+				}
+			}
+		}
+		return maxPuntuacion;
 	}
 
 }
