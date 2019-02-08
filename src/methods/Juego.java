@@ -23,7 +23,7 @@ public class Juego {
 		float maxPuntuacion = 0;
 		for (int k = 0; k < jugadores.length; k++) {
 			if (jugadores[k].getSePasa() == false) {
-				if (maxPuntuacion == 0) {
+				if (k == 0) {
 					l = k;
 					maxPuntuacion = jugadores[k].puntuacion();
 				}
