@@ -61,7 +61,7 @@ public class Main_act_7_1 {
 						}
 						
 						else {
-							System.out.println("Terminé");
+							System.out.println("Terminé mi turno");
 						}
 						
 					}

@@ -167,6 +167,7 @@ public class Jugador {
 			if (this.puntuacion() > 7.5) {
 				resp = true;
 				System.out.println("me pazé eje :3");
+				System.out.println("Cxxx[]KZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZD>");
 				setSePasa(true);
 				}
 			
