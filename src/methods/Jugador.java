@@ -85,79 +85,87 @@ public class Jugador {
 	
 	
 	//IA del jugador 1 (Máquina)
-	public float decision(float maxPuntuacion) {
+	public float decision(float maxPuntuacion, int i) {
 		
 		float probabilidad = 0;
-		float faltaPuntuacion = (float) (7.5 - this.puntuacion());
-					
-			if (faltaPuntuacion == 0.5) {
-				probabilidad = (float) (0.075 * Baraja.getCartasRestantes());
+		float desventaja = 0;
+		
+		if (maxPuntuacion > this.puntuacion() || i == 0) {
+			desventaja = 20;
+		}
+		
+			if (this.puntuacion() == 0.5) {
+				probabilidad = (float) (100 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 1.0) {
-				probabilidad = (float) ((0.175) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 1.0) {
+				probabilidad = (float) (88 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 1.5) {
-				probabilidad = (float) ((0.325) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 1.5) {
+				probabilidad = (float) (79 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 2) {
-				probabilidad = (float) ((0.55) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 2) {
+				probabilidad = (float) (76 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
 
-			if (faltaPuntuacion == 2.5) {
-				probabilidad = (float) (( 0.85) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 2.5) {
+				probabilidad = (float) (65 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 3) {
-				probabilidad = (float) ((1.3) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 3) {
+				probabilidad = (float) (63 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 3.5) {
-				probabilidad = (float) ((1.825) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 3.5) {
+				probabilidad = (float) (54 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 4) {
-				probabilidad = (float) ((2.35) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 4) {
+				probabilidad = (float) (51 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 4.5) {
-				probabilidad = (float) ((3.4) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 4.5) {
+				probabilidad = (float) (42 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 5) {
-				probabilidad = (float) ((6.65) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 5) {
+				probabilidad = (float) (36 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 5.5) {
-				probabilidad = (float) ((14.425) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 5.5) {
+				probabilidad = (float) (26 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 6) {
-				probabilidad = (float) ((33.63) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 6) {
+				probabilidad = (float) (22 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 6.5) {
-				probabilidad = (float) ((73.736) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 6.5) {
+				probabilidad = (float) (14 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 			
-			if (faltaPuntuacion == 7) {
-				probabilidad = (float) ((100) * Baraja.getCartasRestantes());
+			if (this.puntuacion() == 7) {
+				probabilidad = (float) (13 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
+			}
+			if (this.puntuacion() == 7.5) {
+				probabilidad = (float) (0 - (0.25 * (40 - Baraja.getCartasRestantes())) + desventaja);
 			}
 		return probabilidad;
 		
 	}
 	
-	public boolean iaRoba(float maxPuntuacion) {
+	public boolean iaRoba(float maxPuntuacion, int i) {
 		
 		boolean resp = false;
 		
-		if (this.decision(maxPuntuacion) >= 50) {
+		if (this.decision(maxPuntuacion, i) >= 50) {
 			this.pedirCarta();
 			if (this.puntuacion() > 7.5) {
 				resp = true;
+				System.out.println("me pazé eje :3");
 				setSePasa(true);
 				}
 			
