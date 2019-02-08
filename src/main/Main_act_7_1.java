@@ -49,7 +49,7 @@ public class Main_act_7_1 {
 						System.out.println("tienes una puntuación de " + juego.jugadores[j].puntuacion() + " puntos");
 
 						
-						if (juego.jugadores[0].iaRoba(juego.maxPuntuacion()) == true) {
+						if (juego.jugadores[0].iaRoba(juego.maxPuntuacion(), i) == true) {
 							System.out.println("Me planto");
 							finPartida++;
 						}
