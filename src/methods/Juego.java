@@ -19,9 +19,9 @@ public class Juego {
 	
 	//Se elige al ganador
 	public int ganador() {
-		int l = 0;
+		int l = 0, cont = 0, k = 0;
 		float maxPuntuacion = 0;
-		for (int k = 0; k < jugadores.length; k++) {
+		for (k = 0; k < jugadores.length; k++) {
 			if (jugadores[k].getSePasa() == false) {
 				if (k == 0) {
 					l = k;
@@ -34,7 +34,17 @@ public class Juego {
 					}
 				}
 			}
+			
+			else {
+				cont++;
+			}
+			
 		}
+		
+		if (cont == k) {
+			l = -1;
+		}
+		
 		return l;
 	}
 	

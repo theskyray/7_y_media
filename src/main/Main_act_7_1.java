@@ -148,8 +148,13 @@ public class Main_act_7_1 {
 		//Elección del ganador
 		int l = juego.ganador();
 		
-		System.out.println("Ha ganado el jugador " + (l + 1) + " con una puntuacion de " + juego.jugadores[l].puntuacion() + " puntos");
+		if (l == -1) {
+			System.out.println("Habeis perdido los dos");
+		}
 		
+		else {
+			System.out.println("Ha ganado el jugador " + (l + 1) + " con una puntuacion de " + juego.jugadores[l].puntuacion() + " puntos");
+		}
 		
 		sc.close();
 	}
