@@ -158,6 +158,7 @@ public class Jugador {
 			this.pedirCarta();
 			if (this.puntuacion() > 7.5) {
 				resp = true;
+				setSePasa(true);
 				}
 			
 			else {
