@@ -1,17 +1,15 @@
 package methods;
 
-import java.util.Scanner;
-
 public class Juego {
-
-	public Scanner sc =  new Scanner (System.in);
 
 	private int numJugadores;
 	
 	Baraja baraja = new Baraja();
-	public Jugador [] jugadores = new Jugador [numJugadores];
+	public Jugador [] jugadores;
 
 	public Juego(int numJugadores) {
+		
+		jugadores = new Jugador [numJugadores];
 		
 		for (int i = 0; i < jugadores.length; i++) {
 			jugadores[i] = new Jugador ();

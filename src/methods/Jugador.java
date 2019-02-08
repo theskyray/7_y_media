@@ -85,40 +85,95 @@ public class Jugador {
 	
 	
 	//IA del jugador 1 (Máquina)
-	public void decision(float maxPuntuacion) {
+	public float decision(float maxPuntuacion) {
 		
 		float probabilidad = 0;
 		float faltaPuntuacion = (float) (7.5 - this.puntuacion());
-		
-		if (this.puntuacion() < maxPuntuacion) {
-			
+					
 			if (faltaPuntuacion == 0.5) {
 				probabilidad = (float) (0.075 * Baraja.getCartasRestantes());
 			}
 			
 			if (faltaPuntuacion == 1.0) {
-				probabilidad = (float) ((0.075*2 + 0.025) * Baraja.getCartasRestantes());
+				probabilidad = (float) ((0.175) * Baraja.getCartasRestantes());
 			}
 			
 			if (faltaPuntuacion == 1.5) {
-				probabilidad = (float) ((0.075*3 + (0.025 + 0.075)) * Baraja.getCartasRestantes());
+				probabilidad = (float) ((0.325) * Baraja.getCartasRestantes());
 			}
 			
 			if (faltaPuntuacion == 2) {
-				probabilidad = (float) ((0.075*4 + (0.025 + (0.075*2)) + (0.025*2) ) * Baraja.getCartasRestantes());
+				probabilidad = (float) ((0.55) * Baraja.getCartasRestantes());
 			}
 			
 
 			if (faltaPuntuacion == 2.5) {
-				probabilidad = (float) ((0.075*5 + (0.025 + (0.075*3)) + ((0.025*2) + 0.075 ) + (0.025*2 + 0.075) ) * Baraja.getCartasRestantes());
+				probabilidad = (float) (( 0.85) * Baraja.getCartasRestantes());
 			}
 			
+			if (faltaPuntuacion == 3) {
+				probabilidad = (float) ((1.3) * Baraja.getCartasRestantes());
+			}
 			
-		}
+			if (faltaPuntuacion == 3.5) {
+				probabilidad = (float) ((1.825) * Baraja.getCartasRestantes());
+			}
+			
+			if (faltaPuntuacion == 4) {
+				probabilidad = (float) ((2.35) * Baraja.getCartasRestantes());
+			}
+			
+			if (faltaPuntuacion == 4.5) {
+				probabilidad = (float) ((3.4) * Baraja.getCartasRestantes());
+			}
+			
+			if (faltaPuntuacion == 5) {
+				probabilidad = (float) ((6.65) * Baraja.getCartasRestantes());
+			}
+			
+			if (faltaPuntuacion == 5.5) {
+				probabilidad = (float) ((14.425) * Baraja.getCartasRestantes());
+			}
+			
+			if (faltaPuntuacion == 6) {
+				probabilidad = (float) ((33.63) * Baraja.getCartasRestantes());
+			}
+			
+			if (faltaPuntuacion == 6.5) {
+				probabilidad = (float) ((73.736) * Baraja.getCartasRestantes());
+			}
+			
+			if (faltaPuntuacion == 7) {
+				probabilidad = (float) ((100) * Baraja.getCartasRestantes());
+			}
+		return probabilidad;
 		
 	}
 	
-	
+	public boolean iaRoba(float maxPuntuacion) {
+		
+		boolean resp = false;
+		
+		if (this.decision(maxPuntuacion) >= 50) {
+			this.pedirCarta();
+			if (this.puntuacion() > 7.5) {
+				resp = true;
+				}
+			
+			else {
+				resp = false;
+			}
+			
+		}
+		
+		else {
+			this.sePlanta = true;
+			resp = true;
+		}
+		
+		return resp;
+
+	}
 	
 	
 }

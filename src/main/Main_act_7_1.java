@@ -42,10 +42,21 @@ public class Main_act_7_1 {
 				
 					//Máquina
 					if (j == 0) {
-						
+												
 						System.out.println("TURNO DE LA MÁQUINA");
 						
+						System.out.println("\n" + juego.jugadores[j]);	
+						System.out.println("tienes una puntuación de " + juego.jugadores[j].puntuacion() + " puntos");
+
 						
+						if (juego.jugadores[0].iaRoba(juego.maxPuntuacion()) == true) {
+							System.out.println("Me planto");
+							finPartida++;
+						}
+						
+						else {
+							System.out.println("Terminé");
+						}
 						
 					}
 					
