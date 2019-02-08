@@ -149,7 +149,7 @@ public class Main_act_7_1 {
 		int l = juego.ganador();
 		
 		if (l == -1) {
-			System.out.println("Habeis perdido los dos");
+			System.out.println("Habeis perdido todos");
 		}
 		
 		else {
